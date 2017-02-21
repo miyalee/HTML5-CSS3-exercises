@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>人像-长脸黄毛</title>
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+
+            display: table;
+            text-align: center;
+        }
+
+        .wrapper {
+            display: table-cell;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .background-circle {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            display: inline-block;
+            position: relative;
+
+            background-color: #95B3BF;
+            border-radius: 50%;
+
+            overflow: hidden;
+        }
+
+        .background-circle:after {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 200px;
+            right: 260px;
+
+            content: "";
+            background-color: #000;
+            opacity: 0.2;
+            transform: rotate(-45deg);
+        }
+
+        .background-circle:before {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 115px;
+            left: 220px;
+
+            content: "";
+            background-color: #fff;
+            opacity: 0.2;
+            transform: rotate(45deg);
+        }
+
+        .body {
+            width: 300px;
+            height: 240px;
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            margin-left: -150px;
+
+            background-color: #222;
+            border-radius: 100px;
+        }
+
+        .shirt-text {
+            position: relative;
+            top: 80px;
+
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        span:nth-child(2) {
+            color: #EF4136;
+        }
+
+        .head {
+            width: 200px;
+            height: 230px;
+            margin: 0 auto;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: 5px;
+
+            background-color: #FFE4BE;
+            border-radius: 25%;
+
+            animation: head-shake 1s linear infinite alternate;
+            transform-origin: bottom;
+        }
+
+        .hair {
+            width: 230px;
+            height: 160px;
+            margin: 0 auto;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -115px;
+            margin-top: -46px;
+
+            background-color: #E7AB57;
+            border-radius: 60px 60px 15px 15px;
+        }
+
+        .hair-top {
+            width: 150px;
+            height: 50px;
+            margin: 0 auto;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -70px;
+            margin-top: -18px;
+
+            background-color: #E7AB57;
+            border-top-right-radius: 35px;
+        }
+
+        .hair:before,
+        .hair:after {
+            width: 15px;
+            height: 30px;
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+
+            content: "";
+            background-color: #FFE4BE;
+        }
+
+        .hair:before {
+            left: 0;
+
+            border-bottom-left-radius: 60px;
+        }
+
+        .hair:after {
+            right: 0;
+
+            border-bottom-right-radius: 60px;
+        }
+
+        .face {
+            width: 180px;
+            height: 100px;
+            margin: 0 auto;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -90px;
+            margin-top: 20px;
+
+            background-color: #FFE4BE;
+            border-radius: 60px 60px 0 0;
+        }
+
+        .hair-bottom {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -23px;
+
+            background-color: #E7AB57;
+            border-bottom-left-radius: 25px;
+        }
+
+        .eye-shadow {
+            width: 28px;
+            height: 14px;
+            display: inline-block;
+            position: absolute;
+
+            content: "";
+            background-color: rgba(149,36,0,0.1);
+            border-radius: 0 0 18px 18px;
+            animation: none;
+        }
+
+        .left-eye-shadow {
+            top: 70px;
+            left: 34px;
+        }
+
+        .right-eye-shadow {
+            top: 70px;
+            right: 34px;
+        }
+
+        .eyebrow {
+            width: 40px;
+            height: 10px;
+            display: inline-block;
+            position: absolute;
+
+            background-color: #E7AB57;
+        }
+
+        .left-eyebrow {
+            left: -8px;
+            top: -40px;
+        }
+
+        .right-eyebrow {
+            right: -8px;
+            top: -40px;
+
+            animation: eyebrow-shake 1.5s ease-in-out infinite alternate;
+        }
+
+        .eye {
+            width: 20px;
+            height: 28px;
+            display: inline-block;
+            position: absolute;
+
+            content: "";
+            background-color: #334C68;
+            border-radius: 10px;
+
+            animation: eye-blink 1.5s ease-in-out 1s infinite alternate;
+            transform-origin: bottom;
+        }
+
+        .left-eye {
+            top: -20px;
+            left: 4px;
+        }
+
+        .right-eye {
+            top: -20px;
+            right: 4px;
+        }
+
+        .mouth {
+            width: 70px;
+            height: 35px;
+            display: inline-block;
+            position: absolute;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -35px;
+            bottom: 30px;
+
+            background-color: #fff;
+            opacity: 0.9;
+            border-radius: 0 0 70px 70px;
+        }
+
+        .head-shadow {
+            width: 100px;
+            height:250px;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: -20px;
+
+            background-color: rgba(149,36,0,0.1);
+            border-radius: 80px;
+        }
+
+        .head-shadow:after {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            position: absolute;
+            right: -23px;
+            top: 120px;
+
+            content: "";
+            background-color: #FFE4BE;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .music-note {
+            height: 400px;
+            width: 400px;
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            margin-left: -200px;
+            top: 50%;
+            margin-top: -200px;
+        }
+
+        .one, .two {
+            display: inline-block;
+            position: absolute;
+            font-size: 120px;
+            color: #E7AB57;
+        }
+
+        .music-note .one {
+            left: 0;
+            top: 66%;
+
+            animation: music-motion 2s ease infinite;
+        }
+
+        .music-note .two {
+            right: 0;
+            top: 40%;
+
+            animation: music-motion 2s ease 1.3s infinite;
+            opacity: 0;
+        }
+
+        @keyframes head-shake {
+            0% { transform: rotate(0deg); }
+            33% { transform: rotate(5deg); }
+            66% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes eyebrow-shake {
+            0% { transform: translateY(0) rotate(15deg); }
+            80% { transform: translateY(0) rotate(15deg); }
+            100% { transform: translateY(-10px) rotate(15deg); }
+        }
+
+        @keyframes eye-blink {
+            0% { transform: scaleY(1); }
+            80% { transform: scaleY(1); }
+            100% { transform: scaleY(0); }
+        }
+
+        @keyframes music-motion {
+            0% {
+                opacity: 0;
+                transform: translateX(0);
+            }
+
+            40% {
+                opacity: 1;
+                transform: translateX(-30px) rotate(15deg);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translateX(0) translateY(-150px) rotate(-15deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(-30px) translateY(-200px) rotate(15deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="background-circle">
+            <div class="body">
+                <span class="shirt-text">I</span>
+                <span class="shirt-text">♥</span>
+                <span class="shirt-text">CSS</span>
+            </div>
+        </div>
+         <div class="head">
+            <div class="hair">
+                <div class="hair-top"></div>
+            </div>
+            <div class="face">
+                <div class="hair-bottom"></div>
+                <div class="eye-shadow left-eye-shadow">
+                    <div class="eyebrow left-eyebrow"></div>
+                    <div class="eye left-eye"></div>
+                </div>
+                <div class="eye-shadow right-eye-shadow">
+                    <div class="eyebrow right-eyebrow"></div>
+                    <div class="eye right-eye"></div>
+                </div>
+            </div>
+            <div class="mouth"></div>
+            <div class="head-shadow">
+            </div>
+        </div>
+
+        <div class="music-note">
+            <div class="one">♫</div>
+            <div class="two">♪</div>
+        </div>
+    </div>
+</body>
+</html>
