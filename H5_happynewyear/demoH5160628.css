@@ -1,0 +1,317 @@
+*{
+	padding: 0;
+	margin:0;
+	border:none;
+	font-size: 1.562vw;
+	font-family: "Microsoft Yahei"
+}
+html,body{
+	height: 100%;
+	overflow: hidden;
+	overflow: hidden;
+}
+#music{
+	position: fixed;
+	right:10px;
+	top:10px;
+	z-index: 6;
+}
+#music_disc{
+	position: relative;	
+}
+#music_disc.play{
+	-webkit-animation:music_disc 2s linear infinite;
+	-ms-animation:music_disc 2s linear infinite;
+	-o-animation:music_disc 2s linear infinite;
+	animation:music_disc 2s linear infinite;
+}
+@keyframes music_disc{
+	0%{
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	100%{
+		-webkit-transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		-o-transform:rotate(360deg);
+		transform:rotate(360deg);
+	}
+
+}
+.music_pointer{
+	position: absolute;
+	top:14px;
+	right:0px;
+}
+.page{
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+.page > .bg{
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+/*第一页*/
+#page1{
+	display: block;
+}
+#page1 > .bg{
+	background: url("images/p1_bg.jpg") no-repeat center center;
+	background-size: 100%;
+}
+#page1 > .p1_lantern{
+	position: absolute;
+	top:-3.4%;
+	left: 0;
+	right:0;
+	margin:auto;
+	width:45vw;
+	height: 71.2vh;
+	background: url("images/p1_lantern.png") no-repeat center bottom;
+	background-size: 100%;
+	text-align: center;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	box-sizing:border-box;
+	font-size: 3.506rem;
+	padding-top: 31vh;
+
+}
+#page1 > .p1_lantern:before{
+	position: absolute;
+	top:0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin:auto;
+	z-index: -1;
+	content: "";
+	width: 30vw;
+	height: 30vw;
+	background-color:#d60b3b;
+	opacity: 0.5;
+	border-radius: 50%;
+	-webkit-box-shadow: 0 0 10vw 10vw #d60b3b;
+	-moz-box-shadow: 0 0 10vw 10vw #d60b3b;
+	-ms-box-shadow: 0 0 10vw 10vw #d60b3b;
+	-o-box-shadow: 0 0 10vw 10vw #d60b3b;
+	box-shadow: 0 0 10vw 10vw #d60b3b;
+
+	-webkit-animation:p1_lantern .5s infinite alternate;
+	-ms-animation:p1_lantern .5s infinite alternate;
+	-o-animation:p1_lantern .5s infinite alternate;
+	animation:p1_lantern .5s infinite alternate;
+}
+@keyframes p1_lantern{
+	0%{
+		opacity: .5;
+		-webkit-transform:scale(.8,.8);
+		-ms-transform:scale(.8,.8);
+		-o-transform:scale(.8,.8);
+		transform:scale(.8,.8);
+	}
+	100%{
+		opacity: 1;
+	}
+
+}
+#page1 > .p1_imooc{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+/*第二页*/
+#page2{
+	display: none;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+#page2.fadeOut{
+	opacity: .3;
+	-webkit-transform: translate(0,-100%);
+	-ms-transform: translate(0,-100%);
+	-o-transform: translate(0,-100%);
+	transform: translate(0,-100%); 
+}
+#page2 > .bg{
+	background: url("images/p2_bg.jpg") no-repeat center center;
+	background-size: 100%;
+}
+#page2 > .p2_circle{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top:0;
+	margin: auto;
+	width: 56.375vw;
+	height: 59.375vw;
+	background:url("images/p2_circle_outer.png") no-repeat center center;
+	background-size: 100%;
+	-webkit-animation:p2_circle_outer 2s linear infinite;
+	-ms-animation:p2_circle_outer 2s linear infinite;
+	-o-animation:p2_circle_outer 2s linear infinite;
+	animation:p2_circle_outer 2s linear infinite;
+}
+@keyframes p2_circle_outer{
+	0%{
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	100%{
+		-webkit-transform:rotate(720deg);
+		-ms-transform:rotate(720deg);
+		-o-transform:rotate(720deg);
+		transform:rotate(720deg);
+	}
+
+}
+#page2 > .p2_circle:after{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top:0;
+	content: "";
+	margin: auto;
+	width: 39.937vw;
+	height: 39.937vw;
+	background:url("images/p2_circle_inner.png") no-repeat center center;
+	background-size: 100%;
+	-webkit-animation:p2_circle_inner 2s linear infinite;
+	-ms-animation:p2_circle_inner 2s linear infinite;
+	-o-animation:p2_circle_inner 2s linear infinite;
+	animation:p2_circle 2s linear infinite;
+}
+@keyframes p2_circle_inner{
+	0%{
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	100%{
+		-webkit-transform:rotate(-360deg);
+		-ms-transform:rotate(-360deg);
+		-o-transform:rotate(-360deg);
+		transform:rotate(-360deg);
+	}
+
+}
+#page2 > .p2_circle:before{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top:0;
+	content: "";
+	margin: auto;
+	width: 39.937vw;
+	height: 39.937vw;
+	background:url("images/p2_circle_middle.png") no-repeat center center;
+	background-size: 100%;
+	-webkit-animation:p2_circle_middle 2s linear infinite;
+	-ms-animation:p2_circle_middle 2s linear infinite;
+	-o-animation:p2_circle_middle 2s linear infinite;
+	animation:p2_circle_middle 2s linear infinite;
+}
+@keyframes p2_circle_middle{
+	0%{
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	100%{
+		-webkit-transform:rotate(720deg);
+		-ms-transform:rotate(720deg);
+		-o-transform:rotate(720deg);
+		transform:rotate(720deg);
+	}
+
+}
+#page2 > .p2_2016{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top:0;
+	margin: auto;
+	width: 27.5vw;
+	height: 6.24vh;
+	background:url("images/p2_2016.png") no-repeat center center;
+	background-size: 100%;
+}
+/*第三页*/
+#page3{
+	display: none;
+	-webkit-transition:.5s;
+	transition:.5s;
+}
+#page3 > .bg{
+	background: url("images/p3_bg.jpg") no-repeat center center;
+	background-size: 100%;
+}
+#page3 > .p3_couplet_second{
+	position: absolute;
+	left: 13.75vw;
+	top:20.48vh;
+	width: 22.8125vw;
+	height: 41.652vh;
+	background:url("images/p3_couplet_second.png") no-repeat center center;
+	background-size: 100%;
+}
+#page3 > .p3_couplet_first{
+	position: absolute;
+	right: 13.75vw;
+	top:20.48vh;
+	width: 22.8125vw;
+	height: 41.652vh;
+	background:url("images/p3_couplet_first.png") no-repeat center center;
+	background-size: 100%;
+}
+#page3 > .p3_blessing{
+	width:34.6875vw;
+	height: 20.327vh;
+	position: absolute;
+	right:0;
+	left: 0;
+	bottom:10vh;
+	margin: auto;
+	background:url("images/p3_blessing.png") no-repeat center center;
+	background-size: 100%;
+	-webkit-animation:p3_blessing 2s linear infinite;
+	-ms-animation:p3_blessing 2s linear infinite;
+	-o-animation:p3_blessing 2s linear infinite;
+	animation:p3_blessing 2s linear infinite;
+}
+@keyframes p3_blessing{
+	0%{
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	100%{
+		-webkit-transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		-o-transform:rotate(360deg);
+		transform:rotate(360deg);
+	}
+
+}
+#page3.fadeIn {
+-webkit-transform: translate(0 -100%);
+transform: translate(0, -100%);
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="miyalee" content="https://miyalee.github.io/2017/01/19/blog2017-1-19/">
+	<meta charset="utf-8">
+	<title>纯CSS实现loading动画</title>
+	<style>
+		.form-loading-square {
+		    width: 40px;
+		    height: 40px;
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    margin-left: -20px;
+		    margin-top: -20px;
+		    background-color: #ccc;
+		    animation: loading 2000ms linear infinite both;
+		}
+
+		@keyframes loading {
+		    0% {
+		        transform: matrix(1, 0, 0, 1, 0, 0);
+		    }
+		    8.61% {
+		        transform: matrix(0.125, 0, 0, 1, 0, 0);
+		    }
+		    14.16% {
+		        transform: matrix(0.183, 0, 0, 1, 0, 0);
+		    }
+		    19.72% {
+		        transform: matrix(0.205, 0, 0, 1, 0, 0);
+		    }
+		    25% {
+		        transform: matrix(0.201, 0, 0, 1, 0, 0);
+		    }
+		    27.15% {
+		        transform: matrix(0.2, 0, 0, 0.589, 0, 0);
+		    }
+		    33.61% {
+		        transform: matrix(0.2, 0, 0, 0.125, 0, 0);
+		    }
+		    44.72% {
+		        transform: matrix(0.2, 0, 0, 0.205, 0, 0);
+		    }
+		    50% {
+		        transform: matrix(0.2, 0, 0, 0.201, 0, 0);
+		    }
+		    52.15% {
+		        transform: matrix(0.611, 0, 0, 0.2, 0, 0);
+		    }
+		    58.61% {
+		        transform: matrix(1.075, 0, 0, 0.2, 0, 0);
+		    }
+		    69.72% {
+		        transform: matrix(0.995, 0, 0, 0.2, 0, 0);
+		    }
+		    75% {
+		        transform: matrix(0.999, 0, 0, 0.2, 0, 0);
+		    }
+		    76.9% {
+		        transform: matrix(1, 0, 0, 0.629, 0, 0);
+		    }
+		    82.56% {
+		        transform: matrix(1, 0, 0, 1.058, 0, 0);
+		    }
+		    92.57% {
+		        transform: matrix(1, 0, 0, 0.997, 0, 0);
+		    }
+		    100% {
+		        transform: matrix(1, 0, 0, 1, 0, 0);
+		    }
+		}
+	</style>
+</head>
+<body>
+	<div class="form-loading-square"></div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0 ,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<title>个人简历</title>
+
+<link href="css/resume.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="js/perfect.js"></script>
+<!--引入做好的 “完美”运动框架-->
+<script>
+window.onscroll=function(){
+	var	oDiv1=document.getElementById('contentOne');
+	var	oDiv2=document.getElementById('contentTwo');
+	var	oDiv3=document.getElementById('contentThree');
+	var	oDiv4=document.getElementById('contentFour');
+	var	oDiv5=document.getElementById('contentFive');
+	//监听滚动
+	Move(oDiv1,5,60);
+	Move(oDiv2,100,380);
+	Move(oDiv3,600,60);
+	Move(oDiv4,1140,60);
+	Move(oDiv5,1640,60);
+	
+};
+function Move(object,top,target){
+	//获取滚动值
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	//alert(scrollTop);
+	if(scrollTop>top){
+		object.style.display='inline';
+		startMove(object,{left:target}, function (){
+			//alert('a');
+		});	
+	};
+};
+</script>
+</head>
+<body>
+<div class="one">
+	<h1>个人简历</h1>
+    <!--进行运动的部分-->
+    <div id="contentOne">
+    	<h2>个人资料:</h2>
+    		<p>
+		姓  名：李梦雅                                                                   婚姻状况：未婚
+		出  生：1994年3月2日                                                  	  政治面貌：团员
+		性  别：女                                                                          民      族： 汉
+		学  位：本科大三在读                                                        移动电话：18330115249
+		专  业：软件工程                                                               电子邮件：877545265@qq.com
+		地  址：河北省石家庄市河北师范大学
+			</p>
+    	</div><!--contentOne-->
+    <img src="images/one.png" alt="one"/> 
+</div><!--one-->
+
+<div class="two"> 
+	<div id="contentTwo">
+    	<h2>教育背景:</h2>
+        <p>
+        2006.9-2009.6  河北沧州杜林二中（初中）
+	2009.9-2012.6  沧县中学（高中）
+	2012.9-2016.6	河北师范大学软件学院-----软件工程专业
+         </p>
+         <h2>主修课程:</h2>
+         <P>
+         高等数学、大学英语、数据结构、面向对象程序设计（C++）、数据库原理、操作系统、
+         PHP、html5、html5游戏开发、计算机组成原理、web开发、计算机导论、程序设计基础、
+         网络原理等
+         </P>
+    </div><!--contentTwo-->
+    <img src="images/two.png" alt="two"/>
+</div><!--two-->
+
+<div class="three">
+    <!--进行运动的部分-->
+    <div id="contentThree">
+    	<h2>计算机能力:</h2>
+    		<p>
+		能熟悉使用Photoshop、Dreamweaver、EdgeReflow、Axure等软件。
+		掌握html5，javascript,css3并能进行页面布局。
+		能够使用bootstrap框架制作响应式网站。
+		对php等后台技术有一定的了解。
+		对web前端具有强烈兴趣，希望能掌握更多知识，获得更多经验
+			</p>
+         <h2>奖励情况:</h2>
+    		<p>
+		2014/8  优秀暑期社会实践成员           20013-2014   院级三等奖学金
+        	创意拍卖会最佳人气奖 	    	英语全国四级证书
+
+			</p>
+    	</div><!--contentThree-->
+    <img src="images/three.png" alt="three"/> 
+</div><!--three-->
+
+<div class="four">
+    <!--进行运动的部分-->
+    <div id="contentFour">
+    	<h2>实践经验:</h2>
+    		<p>
+	本人入学即加入学生会，曾是文艺部一员，和其他成员一起策划、举办校园活动，获得丰
+        富经验，学会与人良好沟通、团队合作、能够谨慎分析问题和解决问题。
+	大二下学期选择了互联网与HTML5游戏开发方向继续学习。大三在老师的指导下分组做项
+        目，我与小组成员合作完成了萌宠养成网站项目，本人担任队长，主要负责网站前端设计
+        及分配与协调等工作，协作、领导、分析问题、沟通等能力在这个阶段有所提高。
+			</p>
+    	</div><!--contentFour-->
+    <img src="images/five.png" alt="four"/> 
+</div><!--four-->
+
+<div class="five">
+    <!--进行运动的部分-->
+    <div id="contentFive">
+    	<h2>自我评价:</h2>
+    		<p>
+	本人积极乐观，时间观念强，有责任心，碰到挫折不屈服，能够静下心来，以积极乐观的
+        心态，耐心地想办法解决，待人诚恳有礼貌；积极参加课外文体活动，各种社会实践活动
+        等，以增加自己的阅历，提高自己的能力；在校期间有兼职的经历，在工作中体会办事方
+        式，锻炼口才和人际交往能力；懂得欣赏美与创造美的重要性，对版式设计与配色有强烈
+        兴趣，我认为一个优秀的项目要以商品为道具，以服务为舞台，以客户为中心，创造出可
+        以使用户全面参与、让用户感到值得回忆；我虽还未毕业，但我年轻，意志坚强，有能力
+        完成任何工作。尽管我还缺乏一定的经验，但我会用时间和汗水去弥补。
+			</p>
+    	</div><!--contentFive-->
+    <img src="images/four.png" alt="five"/> 
+</div><!--five-->
+
+</body>
+</html>

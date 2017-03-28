@@ -1,0 +1,123 @@
+@charset "utf-8";
+/* CSS Document */
+/***************我是一条分割线*****************/
+/*共用*/
+*{
+	padding:0;
+	margin:0;
+}
+p{
+	display:inline;
+	white-space:pre-wrap;
+	font-family:Arial,"Hiragino Sans GB W3", "Microsoft YaHei UI";
+	line-height:30px;
+	font-size:20px;	
+}
+
+/*最外层div共用*/
+body div{
+	position:absolute;
+	height:520px;
+	width:100%;	
+	overflow:hidden;
+}
+
+/*content共用*/
+body div div{
+	position:relative;
+	/*为content设定相对定位，方便后续的移动*/
+	
+	font-family:Arial,"Hiragino Sans GB W3", "Microsoft YaHei UI";
+	width:900px;
+}
+
+/***************我是一条分割线*****************/
+/*one*/
+.one{
+	background-color:#0DCEEE;
+}
+#contentOne{
+	display:none;/*先消失*/
+	top:80px;
+	left:20px;/*初始位置*/
+}
+h1{
+	padding-top:25px;
+	font-family:Arial,"Hiragino Sans GB W3", "Microsoft YaHei UI";
+	text-align:center;
+}
+
+.one img{
+	position:absolute;
+	top:175px;
+	right:78px;	
+}
+
+/*two*/
+.two{
+	top:520px;
+	background-color:#04AFDA;
+}
+#contentTwo{
+	display:none;/*先消失*/
+	top:80px;
+	left:340px;/*初始位置*/
+	color:#fff;
+}
+.two img{
+	position:absolute;
+	top:185px;
+	left:58px;	
+}
+
+/*three*/
+.three{
+	background-color:#5D65A7;
+	top:1040px;
+}
+#contentThree{
+	display:none;/*先消失*/
+	top:80px;
+	left:20px;/*初始位置*/
+	color:#fff;
+}
+.three img{
+	position:absolute;
+	top:175px;
+	right:78px;	
+	width:400px;
+	height:300px;
+}
+
+/*four*/
+.four{
+	background-color:#DB46A3;
+	top:1560px;
+}
+#contentFour{
+	display:none;/*先消失*/
+	top:150px;
+	left:20px;/*初始位置*/
+	color:#fff;
+}
+.four img{
+	position:absolute;
+	top:105px;
+	right:78px;	
+}
+
+/*four*/
+.five{
+	background-color:#EF6FB5;
+	top:2080px;
+}
+#contentFive{
+	display:none;/*先消失*/
+	top:150px;
+	left:20px;/*初始位置*/
+}
+.five img{
+	position:absolute;
+	top:175px;
+	right:78px;	
+}

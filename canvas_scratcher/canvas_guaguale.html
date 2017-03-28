@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="miyalee" content="miyalee.github.io/">
+	<title>canvas刮刮乐</title>
+	<style>
+		.scratcher {
+			width: 500px;
+			height: 150px;
+			position: absolute;
+			margin: auto;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
+			overflow: hidden;
+		}
+
+		.img {
+			position: absolute;
+			top: -40px;
+			left: -50px;
+		}
+
+		.canvas {
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="scratcher">
+		<img class="img" src="prize.jpg">
+		<canvas class="canvas" width="500px" height="150px" id="canvas"></canvas>
+	</div>
+
+	<script>
+		function scratcher() {
+			return this.init();
+		}
+
+		scratcher.prototype = {
+			init: function() {
+				this.canvas = document.getElementById('canvas');
+				this.ctx = canvas.getContext('2d');
+				this.flag = true;
+
+				this.draw();
+				this.bind();
+
+				return this;
+			},
+
+			draw: function() {
+				this.ctx.fillStyle = "#ccc";
+				this.ctx.fillRect(0, 0, canvas.width, canvas.height);
+			},
+
+			scratchHandle: function(e) {
+				var self = this,
+					evt = e || window.event,
+					canvas_location = canvas.getBoundingClientRect(),
+					client_x = evt.clientX || evt.touches[0].clientX,
+					client_y = evt.clientY || evt.touches[0].clientY,
+					x = client_x - canvas_location.left,
+					y = client_y - canvas_location.top;
+
+				// console.log(client_x, client_y, x, y, canvas_location.left, canvas_location.top);
+
+				//方式一
+				// ctx.clearRect(x-25, y-25, 50, 50);
+
+				//方式二
+				// ctx.globalCompositeOperation = 'destination-out';
+				// ctx.beginPath();
+				// ctx.arc(x, y, 25, 0, Math.PI*2, false);
+				// ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+				// ctx.fill();
+
+				//方式三
+				this.ctx.globalCompositeOperation = 'destination-out';
+				this.ctx.lineWidth = 40;
+				this.ctx.lineCap = "round";
+				this.ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+
+				if(this.flag) {
+					self.ctx.beginPath();
+					self.ctx.moveTo(x, y);
+
+					self.flag = false;
+				}
+
+				this.ctx.lineTo(x, y);
+				this.ctx.stroke();
+			},
+
+			bind: function() {
+				var self = this;
+
+				this.canvas.onmousedown = function(){
+					self.canvas.onmousemove = self.scratchHandle.bind(self);
+				}
+
+				this.canvas.addEventListener('touchmove', self.scratchHandle.bind(self), false);
+
+				this.canvas.onmouseup = function() {
+					self.canvas.onmousemove = null;
+					flag = true;
+				}
+			}
+		}
+
+		new scratcher();
+	</script>
+</body>
+</html>

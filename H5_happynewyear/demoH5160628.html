@@ -1,0 +1,83 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1,user-scaleble=no">
+    <meta name="format-detection" content="telephone=no">
+	<title>H5</title>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="demoH5160628.css">
+</head>
+<body>
+	<div id="music">
+		<img src="images/music_disc.png" id="music_disc" class="play">
+		<img src="images/music_pointer.png" class="music_pointer">
+	</div>
+	<div class="page" id="page1">	
+		<div class="bg"></div>
+		<div class="p1_lantern">点击开始好运2016</div>
+		<img src="images/p1_imooc.png" class="p1_imooc">
+	</div>
+	<div class="page" id="page2">
+		<div class="bg"></div>
+		<div class="p2_circle"></div>
+		<div class="p2_2016"></div>
+	</div>
+	<div class="page" id="page3">
+		<div class="bg"></div>
+		<div class="p3_couplet_second"></div>
+		<div class="p3_couplet_first"></div>
+		<div class="p3_blessing"></div>
+	</div>
+	<audio autoplay="true">
+		<source src="happynewyear.mp3" type="audio/mpeg" media="">
+	</audio>
+</body>
+<script>
+	window.onload = function(){
+		// 变量获取
+		var music = document.getElementById("music");
+		var audio = document.getElementsByTagName("audio")[0];
+		var music_disc = document.getElementById("music_disc");
+		var page1 = document.getElementById("page1");
+		var page2 = document.getElementById("page2");
+		var page3 = document.getElementById("page3");
+
+		//音乐播放完毕后自动停止转动
+		audio.addEventListener("ended",function(event){
+			music.setAttribute("class","")
+		},false);
+		//通过cd盘控制播放暂停
+		music.addEventListener("touchstart",function(event){
+			// 如果暂停状态，则播放，播放状态则暂停
+			if(audio.paused){
+				audio.play();
+				music_disc.setAttribute("class","play");
+				// 手机端仅iphone6plus支持
+				// music_disc.style.animationPlayState = "running";
+				// // 手机端仅iphone6plus iphone6支持
+				// music.style.webkitAanimationPlayState = "running";
+			}else{
+				audio.pause();
+				music_disc.setAttribute("class","");
+				// music_disc.style.animationPlayState = "paused";
+				// music.style.webkitAanimationPlayState = "running";
+			};
+		},false);
+		
+		//页面跳转
+		page1.addEventListener("touchstart",function(event){
+			page1.style.display="none";
+			page2.style.display="block";
+			page3.style.display="block";
+			page3.style.top="100%";
+
+			setTimeout(function(){
+				page2.setAttribute("class","page fadeOut");
+				page3.setAttribute("class","page fadeIn");
+			},2500);
+		},false);
+	}	
+</script>
+</html>

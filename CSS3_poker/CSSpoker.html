@@ -1,0 +1,202 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>扑克牌</title>
+		<style>
+		/*通用属性*/
+			.card{
+				float: left;
+				width: 285px;
+				height: 440px;
+				border:1px solid #ccc;
+				padding: 10px;
+				margin: 2px;
+				box-shadow: 0px 0px 1px 1px #ccc;
+				background-color: #fff;
+			}
+			.svg{
+				font-family: Helvetica, Arial, Sans-serif;
+			}
+			.card_top{
+				position: absolute;
+			}
+			.card_top .top_number{
+				font-size: 48px;
+				font-family: '宋体';
+			}
+			.card_top .top_svg{
+				position: relative;
+				font-size: 32px;
+			    	top: 26px;
+			    	left: -28px;
+			}
+			.card_middle{
+				position: relative;
+				text-align: center;
+			}
+			.card_middle .middle_svg{
+				font-size: 100px; 
+			}
+			.card_middle #card1_svg_left,.card_middle #card2_svg_left{
+				margin-right: 40px;
+			}
+			.card_middle #card1_svg_right,.card_middle #card2_svg_right{
+				margin-left: 40px;
+			}
+			/*梅花4反向图像 使用伪元素和transform绘制*/
+			#card1_svg_left::after{
+				content: "♣";
+				position: absolute;
+				top: 323px;
+			    	left: 33px;
+			    	-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}
+			#card1_svg_right::after{
+				content: "♣";
+				position: absolute;
+			    	top: 323px;
+			    	left: 187px;
+			    	-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}
+			#card1_top_number::after{
+				content: "4";
+				position: absolute;
+				left: 258px;
+   				top: 387px;
+   				-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}	
+			#card1_top_svg::after{
+				content: "♣";
+				position: absolute;
+				left: 255px;
+   				top: 322px;
+   				-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}
+			/*黑桃9反向图像*/
+			#svg_group1 > #card2_svg_left::after{
+				content: "♥";
+				position: absolute;
+			    	top: 323px;
+			    	left: 40px;
+			    	-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}
+			#svg_group1 > #card2_svg_right::after{
+				content: "♥";
+				position: absolute;
+			    	top: 323px;
+			    	left: 187px;
+			    	-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}
+			/*黑桃9最中间*/
+			#svg_group1 > #card2_svg_left::before{
+				content: "♥";
+				position: absolute;
+				top: 100%;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 50%;
+				height: 50%;
+				margin: auto;
+			}
+			#svg_group2{
+				position: relative;
+				top:-8px;
+			}
+			#svg_group2 > #card2_svg_left::after{
+				content: "♥";
+				position: absolute;
+			    	top: 113px;
+			    	left: 40px;
+			    	-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}
+			#svg_group2 > #card2_svg_right::after{
+				content: "♥";
+				position: absolute;
+			    	top: 113px;
+			    	left: 187px;
+			    	-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}
+			#card2_top_number::after{
+				content: "9";
+				position: absolute;
+				left: 258px;
+   				top: 387px;
+   				-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}	
+			#card2_top_svg::after{
+				content: "♥";
+				position: absolute;
+				left: 257px;
+   				top: 322px;
+   				-moz-transform:rotate(180deg);
+			    	-ms-transform:rotate(180deg);
+			    	-webkit-transform:rotate(180deg);
+				transform:rotate(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<!--梅花4-->
+		<div class="card">
+			<!--数字和小号图像-->
+			<div class="card_top">
+				<span class="top_number" id="card1_top_number">4</span>
+				<span class="svg top_svg" id="card1_top_svg">♣</span>
+			</div>
+			<!--梅花图像-->
+			<div class="card_middle">
+				<span class="svg middle_svg" id="card1_svg_left">♣</span>
+				<span class="svg middle_svg" id="card1_svg_right">♣</span>
+			</div>
+		</div>
+		<!--黑桃9-->
+		<div class="card">
+			<!--数字和小号图像-->
+			<div class="card_top">
+				<span class="top_number" id="card2_top_number">9</span>
+				<span class="svg top_svg" id="card2_top_svg">♥</span>
+			</div>
+			<!--黑桃图像-->
+			<div class="card_middle">
+				<!--分上下两组-->
+				<div id="svg_group1">
+					<span class="svg middle_svg" id="card2_svg_left">♥</span>
+					<span class="svg middle_svg" id="card2_svg_right">♥</span>
+				</div>
+				<div id="svg_group2">
+					<span class="svg middle_svg" id="card2_svg_left">♥</span>
+					<span class="svg middle_svg" id="card2_svg_right">♥</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
