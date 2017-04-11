@@ -43,7 +43,7 @@
 		scratcher.prototype = {
 			init: function() {
 				this.canvas = document.getElementById('canvas');
-				this.ctx = canvas.getContext('2d');
+				this.ctx = this.canvas.getContext('2d');
 				this.flag = true;
 
 				this.draw();
@@ -60,29 +60,25 @@
 			scratchHandle: function(e) {
 				var self = this,
 					evt = e || window.event,
-					canvas_location = canvas.getBoundingClientRect(),
+					canvas_location = this.canvas.getBoundingClientRect(),
 					client_x = evt.clientX || evt.touches[0].clientX,
 					client_y = evt.clientY || evt.touches[0].clientY,
 					x = client_x - canvas_location.left,
 					y = client_y - canvas_location.top;
 
-				// console.log(client_x, client_y, x, y, canvas_location.left, canvas_location.top);
-
 				//方式一
-				// ctx.clearRect(x-25, y-25, 50, 50);
+				// this.ctx.clearRect(x-25, y-25, 50, 50);
 
 				//方式二
-				// ctx.globalCompositeOperation = 'destination-out';
-				// ctx.beginPath();
-				// ctx.arc(x, y, 25, 0, Math.PI*2, false);
-				// ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-				// ctx.fill();
+				// this.ctx.globalCompositeOperation = 'destination-out';
+				// this.ctx.beginPath();
+				// this.ctx.arc(x, y, 25, 0, Math.PI*2, false);
+				// this.ctx.fill();
 
 				//方式三
 				this.ctx.globalCompositeOperation = 'destination-out';
 				this.ctx.lineWidth = 40;
 				this.ctx.lineCap = "round";
-				this.ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
 
 				if(this.flag) {
 					self.ctx.beginPath();
@@ -102,12 +98,17 @@
 					self.canvas.onmousemove = self.scratchHandle.bind(self);
 				}
 
-				this.canvas.addEventListener('touchmove', self.scratchHandle.bind(self), false);
-
 				this.canvas.onmouseup = function() {
 					self.canvas.onmousemove = null;
-					flag = true;
+					self.flag = true;
 				}
+
+				this.canvas.addEventListener('touchmove', self.scratchHandle.bind(self), false);
+
+				this.canvas.addEventListener('touchend', function(){
+					self.canvas.removeEventListener('touchmove', self.scratchHandle.bind(self), false);
+					self.flag = true;
+				}, false);
 			}
 		}
 
